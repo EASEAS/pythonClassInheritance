@@ -18,7 +18,9 @@ class world():
             raise StopIteration
         ret = self.objects[self.iter]
         self.iter = self.iter + 1
-        return ret
+        return reti
+    def __reversed__(self):
+        return reversed(self.objects)
     def addObject(self,objectToAdd):
         self.objects.append(objectToAdd)
     def getNextID(self):
@@ -67,7 +69,7 @@ b = B(w)
 
 #check that inheritance is correct by printing IDs then creating a new object
 print(''.join(["\nWorld id = ",str(w.ID)]))
-for obj in w:
+for obj in reversed(w):
     print( ''.join(["list = ", str(obj.l),',\n ID = ',str(obj.id)] ) )
 
 w = world()
