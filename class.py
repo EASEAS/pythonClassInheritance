@@ -23,13 +23,13 @@ class objects():
         if (worldContext == None):
             worldContext = world()
         self.world = worldContext
+        self.world.addObject(self)
 class A(objects):
     def __init__(self,worldContext = None):
         super().__init__(worldContext)
-        self.world.addObject(self)
-        self.l = [0,1,2,3,4,5,7,8,9]
+                self.l = [0,1,2,3,4,5,7,8,9]
 class B(A):
-    def __init__(self,worldContext):
+    def __init__(self,worldContexti = None):
         super().__init__(worldContext)
         self.l = [ x+10 for x in self.l]
 ###############################################################################
