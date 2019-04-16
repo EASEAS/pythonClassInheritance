@@ -22,16 +22,14 @@ class world():
     def __reversed__(self):
         return reversed(self.objects)
     def addObject(self,objectToAdd):
-        self.objects.append(objectToAdd)
-    def getNextID(self):
         self.objectID = self.objectID + 1
-        return self.objectID
+        objectToAdd.id = self.objectID
+        self.objects.append(objectToAdd)
 class objects():
     def __init__(self,worldContext):
         if (worldContext == None):
             worldContext = world()
         self.world = worldContext
-        self.id = worldContext.getNextID()
 class A(objects):
     def __init__(self,worldContext = None):
         super().__init__(worldContext)
