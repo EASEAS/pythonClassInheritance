@@ -11,14 +11,7 @@ class world():
         self.objects = []
         self.objectID = 0 
     def __iter__(self):
-        self.iter = 0
-        return self
-    def __next__(self):
-        if self.iter >= self.objectID:
-            raise StopIteration
-        ret = self.objects[self.iter]
-        self.iter = self.iter + 1
-        return reti
+        return iter(self.objects)
     def __reversed__(self):
         return reversed(self.objects)
     def addObject(self,objectToAdd):
@@ -67,7 +60,7 @@ b = B(w)
 
 #check that inheritance is correct by printing IDs then creating a new object
 print(''.join(["\nWorld id = ",str(w.ID)]))
-for obj in reversed(w):
+for obj in w:
     print( ''.join(["list = ", str(obj.l),',\n ID = ',str(obj.id)] ) )
 
 w = world()
